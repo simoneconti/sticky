@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Sticky</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="sticky.css">
+</head>
+<style>
+	body {
+	padding-top: 50px;
+}
+.alert {
+	margin: 20px 0;
+}
+.alert.no-margin {
+	margin: 0;
+}
+.elements-container {
+	border: solid 1px black;
+	padding: 20px;
+}
+.elements-container.no-padding {
+	padding: 0 20px;
+}
+.spacer {
+	height: 50px;
+}
+</style>
+
+<body data-sticky-container>
+	<nav class="navbar navbar-inverse navbar-fixed-top" data-sticky-external-top-element
+	 data-sticky-element-ignore-margin-bottom="true">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+				 aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span> <span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="#">Sticky</a>
+			</div>
+		</div>
+	</nav>
+	<div class="container">
+		<h1>Sticky</h1>
+		<hr>
+		<h3>Usage</h3>
+		<pre>
+&lt;div data-sticky-container&gt; // The container
+  ...
+  &lt;div data-sticky-element&gt;Element to be stickied inside the container&lt;/div&gt;
+  ...
+&lt;/div&gt;
+</pre>
+		<hr>
+		<h3>Options</h3>
+		<h4>on container</h4>
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<td>Option</td>
+					<td>type</td>
+					<td>default </td>
+					<td>description</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>data-sticky-container-ignore-padding-top</td>
+					<td>boolean</td>
+					<td>true</td>
+					<td>...</td>
+				</tr>
+				<tr>
+					<td>data-sticky-container-ignore-padding-bottom</td>
+					<td>boolean</td>
+					<td>false</td>
+					<td>...</td>
+				</tr>
+				<tr>
+					<td>data-sticky-throttle</td>
+					<td>number</td>
+					<td>50</td>
+					<td>...</td>
+				</tr>
+			</tbody>
+		</table>
+		<h4>on element</h4>
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<td>Option</td>
+					<td>type</td>
+					<td>default </td>
+					<td>description</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>data-sticky-element-ignore-margin-top</td>
+					<td>boolean</td>
+					<td>false</td>
+					<td>...</td>
+				</tr>
+				<tr>
+					<td>data-sticky-element-ignore-margin-bottom</td>
+					<td>boolean</td>
+					<td>false</td>
+					<td>...</td>
+				</tr>
+				<tr>
+					<td>data-sticky-element-ignore-border-top</td>
+					<td>boolean</td>
+					<td>true</td>
+					<td>...</td>
+				</tr>
+				<tr>
+					<td>data-sticky-element-ignore-border-bottom</td>
+					<td>boolean</td>
+					<td>false</td>
+					<td>...</td>
+				</tr>
+				<tr>
+					<td>data-sticky-element-z-index</td>
+					<td>number</td>
+					<td>1</td>
+					<td>...</td>
+				</tr>
+				<tr>
+					<td>data-sticky-element-min-window-width</td>
+					<td>number</td>
+					<td>0</td>
+					<td>Stick the element only if the window width is greater than this value.</td>
+				</tr>
+			</tbody>
+		</table>
+		<h4>on other elements</h4>
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<td>Option</td>
+					<td>type</td>
+					<td>default </td>
+					<td>description</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>data-sticky-external-top-element</td>
+					<td>-</td>
+					<td>-</td>
+					<td>...</td>
+				</tr>
+				<tr>
+					<td>data-sticky-external-bottom-element</td>
+					<td>-</td>
+					<td>-</td>
+					<td>...</td>
+				</tr>
+				<tr>
+					<td>data-sticky-stack</td>
+					<td>-</td>
+					<td>-</td>
+					<td>Split the container in 2 or more stacks, each sticking elements independently, useful for bootstrap cols.</td>
+				</tr>
+			</tbody>
+		</table>
+		<hr>
+		<h3>Examples</h3>
+		<div class="alert alert-success" data-sticky-element data-sticky-element-z-index="10"
+		 data-sticky-element-ignore-margin-bottom="true" data-sticky-element-ignore-margin-top="true">Element to be
+			stickied always</div>
+		<hr>
+		<div class="elements-container" data-sticky-container>
+			Container 1
+			<div class="spacer"></div>
+			<div class="alert alert-info" data-sticky-element data-sticky-element-ignore-margin-bottom="true"
+			 data-sticky-element-ignore-margin-top="true">Element to be stickied inside Container 1</div>
+			<div class="spacer"></div>
+			<div class="spacer"></div>
+			<div class="spacer"></div>
+		</div>
+		<hr>
+		<h4>Options on elements:</h4>
+		<div class="row">
+			<div class="col-xs-3">
+				<div class="elements-container no-padding" data-sticky-container>
+					<div class="spacer"></div>
+					<div class="alert alert-info" data-sticky-element data-sticky-element-ignore-margin-bottom="false"
+					 data-sticky-element-ignore-margin-top="false">Don't ignore margins</div>
+					<div class="spacer"></div>
+				</div>
+			</div>
+			<div class="col-xs-3">
+				<div class="elements-container no-padding" data-sticky-container>
+					<div class="spacer"></div>
+					<div class="alert alert-info" data-sticky-element data-sticky-element-ignore-margin-bottom="true"
+					 data-sticky-element-ignore-margin-top="false">Ignore margin bottom</div>
+					<div class="spacer"></div>
+				</div>
+			</div>
+			<div class="col-xs-3">
+				<div class="elements-container no-padding" data-sticky-container>
+					<div class="spacer"></div>
+					<div class="alert alert-info" data-sticky-element data-sticky-element-ignore-margin-bottom="false"
+					 data-sticky-element-ignore-margin-top="true">Ignore margin top</div>
+					<div class="spacer"></div>
+				</div>
+			</div>
+			<div class="col-xs-3">
+				<div class="elements-container no-padding" data-sticky-container>
+					<div class="spacer"></div>
+					<div class="alert alert-info" data-sticky-element data-sticky-element-ignore-margin-bottom="true"
+					 data-sticky-element-ignore-margin-top="true">Ignore both margins</div>
+					<div class="spacer"></div>
+				</div>
+			</div>
+		</div>
+		<hr>
+		<h4>Options on container:</h4>
+		<div class="row">
+			<div class="col-xs-3">
+				<div class="elements-container" data-sticky-container data-sticky-container-ignore-padding-top="false"
+				 data-sticky-container-ignore-padding-bottom="false">
+					Don't ignore paddings
+					<div class="spacer"></div>
+					<div class="alert alert-info no-margin" data-sticky-element>Element</div>
+					<div class="spacer"></div>
+				</div>
+			</div>
+			<div class="col-xs-3">
+				<div class="elements-container" data-sticky-container data-sticky-container-ignore-padding-top="false"
+				 data-sticky-container-ignore-padding-bottom="true">
+					Ignore padding bottom
+					<div class="spacer"></div>
+					<div class="alert alert-info no-margin" data-sticky-element>Element</div>
+					<div class="spacer"></div>
+				</div>
+			</div>
+			<div class="col-xs-3">
+				<div class="elements-container" data-sticky-container data-sticky-container-ignore-padding-top="true"
+				 data-sticky-container-ignore-padding-bottom="false">
+					Ignore padding top
+					<div class="spacer"></div>
+					<div class="alert alert-info no-margin" data-sticky-element>Element</div>
+					<div class="spacer"></div>
+				</div>
+			</div>
+			<div class="col-xs-3">
+				<div class="elements-container" data-sticky-container data-sticky-container-ignore-padding-top="true"
+				 data-sticky-container-ignore-padding-bottom="true">
+					Ignore both paddings
+					<div class="spacer"></div>
+					<div class="alert alert-info no-margin" data-sticky-element>Element</div>
+					<div class="spacer"></div>
+				</div>
+			</div>
+		</div>
+		<hr>
+		<h4>Nested containers</h4>
+		<div class="elements-container" data-sticky-container>
+			Container 1
+			<div class="spacer"></div>
+			<div class="alert alert-info no-margin" data-sticky-element data-sticky-element-z-index="3">Element to be
+				stickied inside Container 1</div>
+			<div class="spacer"></div>
+			<div class="elements-container" data-sticky-container>
+				Container 2
+				<div class="spacer"></div>
+				<div class="alert alert-info no-margin" data-sticky-element data-sticky-element-z-index="2">Element to be
+					stickied inside Container 2</div>
+				<div class="spacer"></div>
+				<div class="elements-container" data-sticky-container>
+					Container 3
+					<div class="spacer"></div>
+					<div class="alert alert-info no-margin" data-sticky-element data-sticky-element-z-index="1">Element to be
+						stickied inside Container 3</div>
+					<div class="spacer"></div>
+				</div>
+				<div class="spacer"></div>
+			</div>
+			<div class="spacer"></div>
+		</div>
+		<hr>
+		<h4>Responsive</h4>
+		<div class="elements-container" data-sticky-container>
+			<div class="spacer"></div>
+			<div class="alert alert-info no-margin" data-sticky-element>Element to be stickied always</div>
+			<div class="spacer"></div>
+			<div class="alert alert-info no-margin" data-sticky-element data-sticky-element-min-window-width="600">Element
+				to be stickied only on Window width > 600</div>
+			<div class="spacer"></div>
+			<div class="alert alert-info no-margin" data-sticky-element>Element to be stickied always</div>
+			<div class="spacer"></div>
+		</div>
+		<hr>
+		<h4>Custom order</h4>
+		<div class="elements-container" data-sticky-container>
+			<div class="spacer"></div>
+			<div class="alert alert-info no-margin" data-sticky-element="2">2</div>
+			<div class="spacer"></div>
+			<div class="alert alert-info no-margin" data-sticky-element="1">1</div>
+			<div class="spacer"></div>
+			<div class="alert alert-info no-margin" data-sticky-element="3">3</div>
+			<div class="spacer"></div>
+		</div>
+		<hr>
+		<h4>Variable heights</h4>
+		<div class="elements-container" data-sticky-container>
+			<div class="spacer"></div>
+			<div class="alert alert-info no-margin" data-sticky-element>
+				<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample1" aria-expanded="false"
+				 aria-controls="collapseExample">Click</button>
+				<div class="collapse" id="collapseExample1">
+					<div class="well">...</div>
+				</div>
+			</div>
+			<div class="spacer"></div>
+			<div class="alert alert-info no-margin" data-sticky-element>
+				<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample2" aria-expanded="false"
+				 aria-controls="collapseExample">Click</button>
+				<div class="collapse" id="collapseExample2">
+					<div class="well">...</div>
+				</div>
+			</div>
+			<div class="spacer"></div>
+			<div class="alert alert-info no-margin" data-sticky-element>
+				<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample3" aria-expanded="false"
+				 aria-controls="collapseExample">Click</button>
+				<div class="collapse" id="collapseExample3">
+					<div class="well">...</div>
+				</div>
+			</div>
+			<div class="spacer"></div>
+		</div>
+		<hr>
+		<h4>Dynamic elements</h4>
+		<div class="elements-container" id="dynamic-elements-container" data-sticky-container>
+			<button class="btn btn-primary" id="dynamic-elements-button" type="button">Add element</button>
+		</div>
+		<hr>
+		<h4>Stacks</h4>
+		<div class="elements-container" data-sticky-container>
+			<div class="row">
+				<div class="col-xs-4" data-sticky-stack>
+					<div class="spacer"></div>
+					<div class="alert alert-info no-margin" data-sticky-element>1</div>
+					<div class="spacer"></div>
+					<div class="spacer"></div>
+					<div class="alert alert-info no-margin" data-sticky-element><br>2<br></div>
+					<div class="spacer"></div>
+					<div class="alert alert-info no-margin" data-sticky-element>3</div>
+					<div class="spacer"></div>
+				</div>
+				<div class="col-xs-8" data-sticky-stack>
+					<div class="spacer"></div>
+					<div class="alert alert-info no-margin" data-sticky-element><br>1<br></div>
+					<div class="spacer"></div>
+					<div class="alert alert-info no-margin" data-sticky-element>2</div>
+					<div class="spacer"></div>
+					<div class="spacer"></div>
+					<div class="alert alert-info no-margin" data-sticky-element><br>3<br></div>
+					<div class="spacer"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="spacer"></div>
+	<div class="spacer"></div>
+	<div class="spacer"></div>
+	<div class="spacer"></div>
+	<div class="spacer"></div>
+	<div class="spacer"></div>
+	<div class="spacer"></div>
+	<div class="spacer"></div>
+	<div class="spacer"></div>
+	<div class="spacer"></div>
+	<div class="spacer"></div>
+	<div class="spacer"></div>
+	<div class="spacer"></div>
+	<div class="spacer"></div>
+	<div class="spacer"></div>
+	<div class="spacer"></div>
+	<div class="spacer"></div>
+	<div class="spacer"></div>
+	<div class="spacer"></div>
+	<div class="spacer"></div>
+	<div class="spacer"></div>
+	<div class="spacer"></div>
+	<div class="spacer"></div>
+	<div class="spacer"></div>
+	<div class="spacer"></div>
+	<div class="spacer"></div>
+	<div class="spacer"></div>
+	<div class="spacer"></div>
+	<div class="spacer"></div>
+	<div class="spacer"></div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-throttle-debounce/1.1/jquery.ba-throttle-debounce.min.js"></script>
+	<script src="sticky.js"></script>
+	<script>
+		// 		$("[data-action='sticky']").each(function() {
+		// 			var ignoreContainerPaddingTop = $(this).data('sticky-ignore-padding-top');
+		// 			var ignoreContainerPaddingBottom = $(this).data('sticky-ignore-padding-bottom');
+		// 			var throttle = $(this).data('sticky-throttle');
+		// 			$(this).sticky({
+		// 				ignoreContainerPaddingTop: ignoreContainerPaddingTop,
+		// 				ignoreContainerPaddingBottom: ignoreContainerPaddingBottom,
+		// 				throttle: throttle
+		// 			});
+		// 		});
+
+		$('#dynamic-elements-button').click(function () {
+			$('#dynamic-elements-container').append("<div class='spacer'></div><div class='alert alert-info no-margin' data-sticky-element>...</div>");
+		});
+
+		$.sticky();
+
+	</script>
+</body>
+
+</html>

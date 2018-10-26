@@ -1,0 +1,21 @@
+.sticky-container {
+	position: relative;
+}
+
+.stickied-top {
+	position: fixed !important;
+	top: 0;
+}
+
+.stickied-bottom {
+	position: absolute !important;
+	bottom: 0;	
+}
+
+.force-position-static {
+	position: static !important;
+}
+
+.sticky-placeholder {
+	overflow: hidden;
+}
